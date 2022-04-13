@@ -1,0 +1,97 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "Initialize tables",
+        "author": "Oskar Makowski",
+        "changes": [
+          {
+            "createTable": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "OPSYS",
+                    "type": "nvarchar(2)",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "primaryKeyName": "poaccrualdataCompositePrimaryKey"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "EBELN",
+                    "type": "nvarchar(15)",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "primaryKeyName": "poaccrualdataCompositePrimaryKey"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "EBELP",
+                    "type": "integer",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "primaryKeyName": "poaccrualdataCompositePrimaryKey"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "type": "integer",
+                    "constraints": {
+                      "nullable": true
+                    }
+                  }
+                }
+              ],
+              "tableName": "poaccrualdataservice_poaccrualdata"
+            }
+          },
+          {
+            "loadData": {
+              "encoding": "UTF-8",
+              "file": "db/poData.csv",
+              "separator": ";",
+              "schemaName": "public",
+              "tableName": "poaccrualdataservice_poaccrualdata",
+              "usePreparedStatements": true,
+              "columns": [
+                {
+                  "column": {
+                    "name": "OPSYS",
+                    "type": "STRING"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "EBELN",
+                    "type": "STRING"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "EBELP",
+                    "type": "NUMERIC"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "type": "NUMERIC"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

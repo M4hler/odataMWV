@@ -1,0 +1,7 @@
+---
+applications:
+  - name: databroker
+    path: srv/target/databroker-exec.jar
+    random-route: true
+    services:
+      - pgsql
